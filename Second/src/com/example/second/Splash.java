@@ -16,6 +16,7 @@ public class Splash extends Activity {
 	
 	public void nextActivity(View v)
 	{
+		// Transitions to the login screen
 		Intent intent = new Intent(this, Login.class);
 	    startActivity(intent);
 	}

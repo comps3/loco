@@ -61,18 +61,23 @@ public class MainActivity extends Activity implements OnInfoWindowClickListener{
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
-		Intent iin= getIntent();
+		
+		Intent iin = getIntent();
 		Bundle b = iin.getExtras();
 		Geocoder geoCoder = new Geocoder(this);
 		
-		if(b!=null)
+		if(b !=null)
 		{
+			// Fetch the data from bundle from Location page
 			addr = (String) b.get("location");
 			title = (String) b.getString("title");
 			description = (String) b.getString("description");
 		}
 		
 		 try {
+
+		 	// Uses the Geocoder object and converts a valid 
+		 	// address into latitude and longitude
              List<Address> addresses =
          geoCoder.getFromLocationName(addr, 1); 
              if (addresses.size() >  0) {
@@ -90,7 +95,7 @@ public class MainActivity extends Activity implements OnInfoWindowClickListener{
 		otherIcon = R.drawable.purple_point;
 		
 		if(theMap==null){
-		    //map not instantiated yet
+		    // Map not instantiated yet
 			theMap = ((MapFragment)getFragmentManager().findFragmentById(R.id.the_map)).getMap();
 		}
 		if(theMap != null){
@@ -114,7 +119,8 @@ public class MainActivity extends Activity implements OnInfoWindowClickListener{
 			userMarker.remove();
 		}
 		
-	
+		// Takes the data inserted by the business owner and drops a marker
+		// on the map. 
 		userMarker = theMap.addMarker(new MarkerOptions()
 	    .position(lastLatLng)
 	    .title(title)

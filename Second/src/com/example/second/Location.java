@@ -20,6 +20,8 @@ public class Location extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_location);
+
+		// Connects the elements from the Location layout
 		address = (TextView)findViewById(R.id.editText1);
 		title = (TextView)findViewById(R.id.editText2);
 		description = (TextView)findViewById(R.id.editText3);
@@ -27,11 +29,13 @@ public class Location extends Activity {
 
 	public void passToActivity(View v)
 	{
+
 	   Intent i = new Intent(this, MainActivity.class);
+	   // Fetches user's input of address, title, and description
 	   String addrString = address.getText().toString();
 	   String titleString = title.getText().toString();
 	   String descriptionString = description.getText().toString();
-	   //add the location data
+	   // Add the location data
 	   i.putExtra("location", addrString);
 	   i.putExtra("title", titleString);
 	   i.putExtra("description", descriptionString);

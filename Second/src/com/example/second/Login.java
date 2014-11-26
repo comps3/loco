@@ -19,15 +19,20 @@ public class Login extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_login);
+
+		// Connections made to the login layout
 		loginButton = (Button)findViewById(R.id.button1);
 		firstName = (TextView)findViewById(R.id.editText1);
 		password = (TextView)findViewById(R.id.editText2);
+
 		firstName.setText("First Name");
 		password.setText("Password");
 	}
 
 	public void verify(View v)
 	{
+		// App would transition to the location activity only if
+		// someone entered one of our teammates names :)
 		if(firstName.equals("brett"));
 		{
 			Intent intent = new Intent(this, Location.class);
